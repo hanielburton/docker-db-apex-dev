@@ -33,8 +33,7 @@ ame_create_workspace(){
 ame_install_db(){
     echo "Installing AME"
 
-    echo "EXIT" | ${ORACLE_HOME}/bin/sqlplus -s -l ame/${PASS} @ame_db_pkg.sql
-    echo "EXIT" | ${ORACLE_HOME}/bin/sqlplus -s -l ame/${PASS} @ame_db_native_compile_pkg.sql
+    echo "EXIT" | ${ORACLE_HOME}/bin/sqlplus -s -l ame/${PASS} @install
     echo "EXIT" | ${ORACLE_HOME}/bin/sqlplus -s -l ame/${PASS} @ame_db_sample_obj
 }
 
@@ -65,6 +64,12 @@ EOF`
         echo "@@ame_sample_apex_app.sql" >> install_ame_app.sql
     elif [ "$APEX_SCHEMA" = "APEX_190200" ]; then
         echo "Install AME Sample App for APEX 19.2"
+        echo "@@ame_sample_apex_app.sql" >> install_ame_app.sql
+    elif [ "$APEX_SCHEMA" = "APEX_200100" ]; then
+        echo "Install AME Sample App for APEX 20.1"
+        echo "@@ame_sample_apex_app.sql" >> install_ame_app.sql
+    elif [ "$APEX_SCHEMA" = "APEX_200200" ]; then
+        echo "Install AME Sample App for APEX 20.2"
         echo "@@ame_sample_apex_app.sql" >> install_ame_app.sql
     fi
 

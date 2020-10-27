@@ -7,16 +7,16 @@
 
 This Docker Image contains the following:
 
-* Oracle Linux 7.7
+* Oracle Linux 7.9
 * Oracle Database 12.2 / 18.3 / 19.3 Enterprise Edition with non-CDB architecture
-* Oracle APEX 19.2
-* Oracle ORDS 19.4
-* Oracle SQLcl 19.4
-* Apache Tomcat 8.5.51
-* AdoptOpenJDK 11.0.5+10
+* Oracle APEX 20.2
+* Oracle ORDS 20.2.1
+* Oracle SQLcl 20.2
+* Apache Tomcat 8.5.59
+* AdoptOpenJDK 11.0.9+11
 * OraOpenSource Logger 3.1.1
 * OraOpenSource OOS Utils 1.0.1
-* APEX Office Print 19.x (Cloud Package)
+* APEX Office Print 20.x (Cloud Package)
 * APEX Media Extension 20.x (Cloud Package)
 * Swagger-UI 3.x
 
@@ -42,19 +42,21 @@ You can take the direct Download Links from [download_urls.txt](https://github.c
 * [Oracle Database 12.2.0.1 EE](https://download.oracle.com/otn/linux/oracle12c/122010/linuxx64_12201_database.zip)
 * [Oracle Database 18.3 EE](https://download.oracle.com/otn/linux/oracle18c/180000/LINUX.X64_180000_db_home.zip)
 * [Oracle Database 19.3 EE](https://download.oracle.com/otn/linux/oracle19c/190000/LINUX.X64_193000_db_home.zip)
-* [Oracle APEX 19.2](https://download.oracle.com/otn/java/appexpress/apex_19.2.zip)
-* [Oracle ORDS 19.4](https://download.oracle.com/otn/java/ords/ords-19.4.0.352.1226.zip)
-* [Oracle SQLcl 19.4](https://download.oracle.com/otn/java/sqldeveloper/sqlcl-19.4.0.354.0937.zip)
-* [Apache Tomcat 8.5.51](https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.51/bin/apache-tomcat-8.5.51.tar.gz)
-* [AdoptOpenJDK 11.0.6+10 - Linux x64 tar.gz](https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.6%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.6_10.tar.gz)
+* [Oracle APEX 20.2](https://download.oracle.com/otn/java/appexpress/apex_20.2.zip)
+* [Oracle ORDS 20.2.1](https://download.oracle.com/otn/java/ords/ords-20.2.1.227.0350.zip)
+* [Oracle SQLcl 20.2](https://download.oracle.com/otn/java/sqldeveloper/sqlcl-20.2.0.174.1557.zip)
+* [Apache Tomcat 8.5.59](https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.59/bin/apache-tomcat-8.5.59.tar.gz)
+* [AdoptOpenJDK 11.0.9+11 - Linux x64 tar.gz](https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.9%2B11.1/OpenJDK11U-jdk_x64_linux_hotspot_11.0.9_11.tar.gz)
 * [OraOpenSource Logger 3.1.1](https://github.com/OraOpenSource/Logger/raw/master/releases/logger_3.1.1.zip)
 * [OraOpenSource OOS Utils 1.0.1](https://observant-message.glitch.me/oos-utils/latest/oos-utils-latest.zip)
-* [APEX Office Print 19.x (Login and download Cloud Package)](https://www.apexofficeprint.com)
+* [APEX Office Print 20.x (Login and download Cloud Package)](https://www.apexofficeprint.com)
 * [APEX Media Extension 20.x (Login and download Cloud Package)](https://www.apexmediaextension.com)
-* [Swagger-UI v3.x](https://github.com/swagger-api/swagger-ui/archive/v3.24.3.zip)
-* [GOSU - Docker SU Fix](https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64)
+* [Swagger-UI v3.x](https://github.com/swagger-api/swagger-ui/archive/v3.35.2.zip)
+* [GOSU - Docker SU Fix](https://github.com/tianon/gosu/releases/download/1.12/gosu-amd64)
 
 **Place all downloaded files in the** [files](https://github.com/Dani3lSun/docker-db-apex-dev/tree/master/files) **directory!**
+
+*Note: You only need to download one Oracle Database version :) After that you will configure the version you downloaded by editing the Dockerfile*
 
 3. **Customize some settings to reflect your needs (optional)**
 
@@ -177,6 +179,7 @@ apex\_public\_user | oracle
 logger\_user | oracle
 oosutils\_user | oracle
 aop | oracle
+ame | oracle
 sdw\_admin | oracle
 
 Use the following connect string to connect as SYSTEM via SQL*Plus or SQLcl: ```system/oracle@localhost/orcl```
